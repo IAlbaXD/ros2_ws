@@ -42,7 +42,7 @@ class MinimalPublisher(Node):
         twist.linear.x = self.spiral_length
         twist.angular.z = self.spiral_angle
         self.publisher_.publish(twist)
-        self.spiral_length += 10.1  # Increase the length for the spiral effect (MODIFICADO)
+        self.spiral_length += 1.0  # Increase the length for the spiral effect (MODIFICADO)
 
         # Check boundaries
         if (self.current_pose.x < 1.0 or self.current_pose.x > 10.0 or
@@ -60,7 +60,7 @@ class MinimalPublisher(Node):
 
         if (self.current_pose.x < 1.0 or self.current_pose.x > 10.0 or
                 self.current_pose.y < 1.0 or self.current_pose.y > 10.0):
-            twist.linear.x = 2.0  # Turn around if hitting the boundary (MODIFICADO)
+            twist.linear.x = -2.0  # Turn around if hitting the boundary
             self.publisher_.publish(twist)
 
 
